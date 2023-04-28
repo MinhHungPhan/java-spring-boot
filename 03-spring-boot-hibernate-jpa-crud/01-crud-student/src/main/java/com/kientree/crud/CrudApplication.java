@@ -23,7 +23,7 @@ public class CrudApplication {
 		return  runner -> {
 			// createStudent(studentDAO);
 
-			// createMultipleStudents(studentDAO);
+			createMultipleStudents(studentDAO);
 
 			// readStudent(studentDAO);
 
@@ -35,7 +35,7 @@ public class CrudApplication {
 
 			// deleteStudentt(studentDAO);
 
-			deleteAllStudents(studentDAO);
+			// deleteAllStudents(studentDAO);
 		};
 	}
 

@@ -17,7 +17,7 @@ public class Student {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = false)
     private String email;
 
     // Define constructors
