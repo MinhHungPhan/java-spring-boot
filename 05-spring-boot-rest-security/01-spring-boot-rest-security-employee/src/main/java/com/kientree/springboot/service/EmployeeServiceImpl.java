@@ -1,43 +1,52 @@
 package com.kientree.springboot.service;
 
-import com.kientree.springboot.dao.EmployeeDAO;
+import com.kientree.springboot.dao.EmployeeRepository;
 import com.kientree.springboot.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService{
+public class EmployeeServiceImpl implements EmployeeService {
 
-    private EmployeeDAO employeeDAO;
+    private EmployeeRepository employeeRepository;
 
     @Autowired
-    public EmployeeServiceImpl(EmployeeDAO employeeDAO) {
-        this.employeeDAO = employeeDAO;
+    public EmployeeServiceImpl(EmployeeRepository theEmployeeRepository) {
+        employeeRepository = theEmployeeRepository;
     }
 
     @Override
     public List<Employee> findAll() {
-        return employeeDAO.findAll();
+        return employeeRepository.findAll();
     }
 
     @Override
-    public Employee findById(int id) {
-        return employeeDAO.findById(id);
+    public Employee findById(int theId) {
+        Optional<Employee> result = employeeRepository.findById(theId);
+
+        Employee theEmployee = null;
+
+        if (result.isPresent()) {
+            theEmployee = result.get();
+        }
+        else {
+            // we didn't find the employee
+            throw new RuntimeException("Did not find employee id - " + theId);
+        }
+
+        return theEmployee;
     }
 
-    @Transactional
     @Override
-    public Employee save(Employee employee) {
-        return employeeDAO.save(employee);
+    public Employee save(Employee theEmployee) {
+        return employeeRepository.save(theEmployee);
     }
 
-    @Transactional
     @Override
-    public void deleteById(int id) {
-        employeeDAO.deleteById(id);
-
+    public void deleteById(int theId) {
+        employeeRepository.deleteById(theId);
     }
 }
