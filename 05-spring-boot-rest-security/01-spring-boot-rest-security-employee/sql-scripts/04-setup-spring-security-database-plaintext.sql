@@ -42,11 +42,11 @@ CREATE TABLE `authorities` (
 
 INSERT INTO `authorities` 
 VALUES 
-('john','ROLE_EMPLOYEE'),
-('lucy','ROLE_EMPLOYEE'),
-('john','ROLE_MANAGER'),
 ('susan','ROLE_EMPLOYEE'),
+('lucy','ROLE_EMPLOYEE'),
 ('lucy','ROLE_MANAGER'),
+('john','ROLE_EMPLOYEE'),
+('john','ROLE_MANAGER'),
 ('john','ROLE_ADMIN');
 
 
