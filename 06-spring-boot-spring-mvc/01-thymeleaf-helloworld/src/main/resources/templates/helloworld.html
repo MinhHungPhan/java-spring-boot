@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>My Thymeleaf Page</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
 </head>
 <body>
-    <p th:text="'Time on the server is: ' + ${theDate}" />
+<div class="container">
+    <h1 class="heading">My Thymeleaf Page</h1>
+    <p class="text" th:text="'Time on the server is: ' + ${theDate}" />
+</div>
 </body>
 </html>
