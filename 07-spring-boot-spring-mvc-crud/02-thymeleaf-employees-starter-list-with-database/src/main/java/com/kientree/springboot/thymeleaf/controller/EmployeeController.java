@@ -5,6 +5,8 @@ import com.kientree.springboot.thymeleaf.service.EmployeeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -45,5 +47,15 @@ public class EmployeeController {
         theModel.addAttribute("employee", theEmployee);
 
         return "employees/employee-form";
+    }
+
+    @PostMapping("/save")
+    public String saveEmployee(@ModelAttribute("employee") Employee theEmployee){
+
+        // Save the employee
+        employeeService.save(theEmployee);
+
+        // Use a redirect to prevent duplicate submissions
+        return "redirect:/employees/list";
     }
 }
