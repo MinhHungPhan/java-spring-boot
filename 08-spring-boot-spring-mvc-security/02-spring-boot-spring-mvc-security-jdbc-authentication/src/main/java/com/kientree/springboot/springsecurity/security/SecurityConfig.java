@@ -16,7 +16,18 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsManager userDetailsManager(DataSource dataSource){
-        return new JdbcUserDetailsManager(dataSource);
+        JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
+
+        // Set the queries to retrieve a user by username
+        String usersByUsernameQuery = "SELECT user_id, pw, active FROM members WHERE user_id = ?";
+
+        // Set the queries to retrieve authorities/roles by username
+        String authoritiesByUsernameQuery = "SELECT user_id, role FROM roles WHERE user_id = ?";
+
+        jdbcUserDetailsManager.setUsersByUsernameQuery(usersByUsernameQuery);
+        jdbcUserDetailsManager.setAuthoritiesByUsernameQuery(authoritiesByUsernameQuery);
+
+        return jdbcUserDetailsManager;
     }
 
     @Bean
