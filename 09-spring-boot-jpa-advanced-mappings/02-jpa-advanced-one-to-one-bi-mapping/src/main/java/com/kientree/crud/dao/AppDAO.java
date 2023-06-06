@@ -1,6 +1,7 @@
 package com.kientree.crud.dao;
 
 import com.kientree.crud.entity.Instructor;
+import com.kientree.crud.entity.InstructorDetail;
 
 public interface AppDAO {
 
@@ -9,4 +10,6 @@ public interface AppDAO {
     Instructor findInstructorById(int id);
 
     void deleteInstructorById(int id);
+
+    InstructorDetail findInstructorDetailById(int id);
 }
