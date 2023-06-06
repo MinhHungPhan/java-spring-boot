@@ -1,6 +1,7 @@
 package com.kientree.crud.dao;
 
 import com.kientree.crud.entity.Instructor;
+import com.kientree.crud.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,5 +37,10 @@ public class AppDAOImpl implements AppDAO {
         // Delete the instructor
         entityManager.remove(instructor);
 
+    }
+
+    @Override
+    public InstructorDetail findInstructorDetailById(int id) {
+        return entityManager.find(InstructorDetail.class, id);
     }
 }
