@@ -23,8 +23,25 @@ public class CrudApplication {
 
 			// findInstructor(appDAO);
 
-			deleteInstructor(appDAO);
+			// deleteInstructor(appDAO);
+
+			findInstructorDetail(appDAO);
 		};
+	}
+
+	private void findInstructorDetail(AppDAO appDAO) {
+
+		// Get the instructor detail object
+		int id = 2;
+
+		InstructorDetail instructorDetail = appDAO.findInstructorDetailById(id);
+
+		// Print the instructor detail
+		System.out.println("instructorDetail: " + instructorDetail);
+
+		// Print the associated instructor
+		System.out.println("the associated instructor: " + instructorDetail.getInstructor());
+
 	}
 
 	private void deleteInstructor(AppDAO appDAO) {
