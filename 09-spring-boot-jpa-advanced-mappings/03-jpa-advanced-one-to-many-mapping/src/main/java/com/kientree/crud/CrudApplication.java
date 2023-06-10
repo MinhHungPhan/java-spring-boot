@@ -1,6 +1,7 @@
 package com.kientree.crud;
 
 import com.kientree.crud.dao.AppDAO;
+import com.kientree.crud.entity.Course;
 import com.kientree.crud.entity.Instructor;
 import com.kientree.crud.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
@@ -27,8 +28,41 @@ public class CrudApplication {
 
 			// findInstructorDetail(appDAO);
 
-			deleteInstructorDetail(appDAO);
+			// deleteInstructorDetail(appDAO);
+
+			createInstructorWithCourses(appDAO);
 		};
+	}
+
+	private void createInstructorWithCourses(AppDAO appDAO) {
+
+		// Create the instructor
+		Instructor instructor = new Instructor("Harry", "Potter", "harry.potter@kientree.com");
+
+		// Create the instructor detail
+		InstructorDetail instructorDetail = new InstructorDetail("https://www.youtube.com/harrypotter", "Quidditch");
+
+		// Associate the instructor detail with the instructor
+		instructor.setInstructorDetail(instructorDetail);
+
+		// Create some courses
+
+		Course course1 = new Course("History of Magic");
+		Course course2 = new Course("Defence Against the Dark Arts");
+
+		// Add courses to instructor
+
+		instructor.add(course1);
+		instructor.add(course2);
+
+		// Save the instructor
+		// NOTE: this will also save the courses because of CascadeType.PERSIST
+
+		System.out.println("Saving instructor: " + instructor);
+		System.out.println("Saving instructor: " + instructor.getCourses());
+		appDAO.save(instructor);
+
+		System.out.println("Done!");
 	}
 
 	private void deleteInstructorDetail(AppDAO appDAO) {
