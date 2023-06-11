@@ -1,10 +1,14 @@
 package com.kientree.crud.dao;
 
+import com.kientree.crud.entity.Course;
 import com.kientree.crud.entity.Instructor;
 import com.kientree.crud.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Repository
 public class AppDAOImpl implements AppDAO {
@@ -57,5 +61,19 @@ public class AppDAOImpl implements AppDAO {
 
         // Delete the instructor detail
         entityManager.remove(instructorDetail);
+    }
+
+    @Override
+    public List<Course> findCoursesByInstructorId(int id) {
+
+        // Create query
+        TypedQuery<Course> query = entityManager.createQuery("from Course where instructor.id = :data", Course.class);
+
+        query.setParameter("data", id);
+
+        // Execute query
+        List<Course> courses = query.getResultList();
+
+        return courses;
     }
 }
