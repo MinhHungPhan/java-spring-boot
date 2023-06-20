@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CoachController {
-    // Define a private filed for the dependency
-
     private Coach myCoach;
 
     @Autowired
