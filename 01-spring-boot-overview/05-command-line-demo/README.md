@@ -4,7 +4,7 @@ This guide provides instructions on how to run a Spring Boot application from th
 
 ## Table of Contents
 - [Introduction](#introduction)
-- [Option 1: Using `java -jar`](#option-1-using-java--jar)
+- [Option 1: Using java -jar](#option-1-using-java--jar)
 - [Option 2: Using the Spring Boot Maven Plugin](#option-2-using-the-spring-boot-maven-plugin)
 - [Development Process](#development-process)
 - [Conclusion](#conclusion)
