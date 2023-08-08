@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CoachController {
-    // Define a private filed for the dependency
+
+    // Define a private field for the dependency
 
     private Coach myCoach;
 
@@ -23,7 +24,6 @@ public class CoachController {
         anotherCoach = theanotherCoach;
     }
 
-
     @GetMapping("/dailyworkout")
     public String getDailyWorkout(){
         return myCoach.getDailyWorkout();
@@ -33,5 +33,4 @@ public class CoachController {
     public String check(){
         return "Comparing beans: myCoach == anotherCoach, " + (myCoach == anotherCoach);
     }
-
 }
