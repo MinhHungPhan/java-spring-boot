@@ -8,10 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CoachController {
-    // Define a private filed for the dependency
 
     private Coach myCoach;
-
 
     @Autowired
     public CoachController(
@@ -20,10 +18,7 @@ public class CoachController {
         myCoach = theCoach;
     }
 
-
     @GetMapping("/dailyworkout")
     public String getDailyWorkout(){return myCoach.getDailyWorkout();
     }
-
-
 }
