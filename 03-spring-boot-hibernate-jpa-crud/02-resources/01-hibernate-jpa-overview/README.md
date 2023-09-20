@@ -40,7 +40,7 @@ JPA, standing for Jakarta Persistence API (previously Java Persistence API), is 
    
 2. **EclipseLink**: Another popular JPA implementation.
    
-For a detailed list of JPA vendors, visit [love2code.com/jpa-vendors](http://love2code.com/jpa-vendors).
+For a detailed list of JPA vendors, visit [Vendors supporting JPA](https://en.wikipedia.org/wiki/Jakarta_Persistence).
 
 ## Benefits of JPA
 
@@ -85,6 +85,6 @@ In this guide, we've delved into the core concepts of Hibernate and JPA, elucida
 ## References
 
 - [Official Hibernate Documentation](https://hibernate.org/documentation/)
-- [JPA Vendors List](http://love2code.com/jpa-vendors)
+- [Vendors supporting JPA](https://en.wikipedia.org/wiki/Jakarta_Persistence)
 
 Thank you for following along, and we'll catch up in the subsequent tutorials!
