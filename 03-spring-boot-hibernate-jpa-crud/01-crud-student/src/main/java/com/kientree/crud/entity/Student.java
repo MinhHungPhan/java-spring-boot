@@ -30,7 +30,6 @@ public class Student {
     }
 
     // Define getters and setters for all fields
-
     public int getId() {
         return id;
     }
@@ -63,8 +62,7 @@ public class Student {
         this.email = email;
     }
 
-    // Define toString method for debugging purposes
-
+    // Define toString() method for debugging purposes
     @Override
     public String toString() {
         return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
