@@ -174,16 +174,22 @@ The `@Transactional` annotation in Spring is a key concept for handling database
 When you use the `@Transactional` annotation in a Spring application, it works in a sophisticated way under the hood. Here's a step-by-step explanation:
 
 1. **Creation of a Proxy**:
-   - **What is a Proxy?**: In programming, a proxy is like a wrapper or an intermediary that adds additional behavior to an object or method. In this case, Spring creates a proxy around the method that is annotated with `@Transactional`.
-   - **Purpose of the Proxy**: This proxy is responsible for managing the transactional behavior of the method. It adds the transaction management capabilities to the method without altering the method's actual code.
+
+- **What is a Proxy?**: In programming, a proxy is like a wrapper or an intermediary that adds additional behavior to an object or method. In this case, Spring creates a proxy around the method that is annotated with `@Transactional`.
+
+- **Purpose of the Proxy**: This proxy is responsible for managing the transactional behavior of the method. It adds the transaction management capabilities to the method without altering the method's actual code.
 
 2. **Handling Transactions When the Method is Called**:
-   - **Starting or Joining a Transaction**: When a method annotated with `@Transactional` is called, the proxy checks if there is an ongoing database transaction. If there is no existing transaction, it starts a new one. If a transaction is already in progress, it joins that transaction.
-   - This means that the operations performed in the method become part of a single database transaction.
+
+- **Starting or Joining a Transaction**: When a method annotated with `@Transactional` is called, the proxy checks if there is an ongoing database transaction. If there is no existing transaction, it starts a new one. If a transaction is already in progress, it joins that transaction.
+
+- This means that the operations performed in the method become part of a single database transaction.
 
 3. **Committing or Rolling Back the Transaction**:
-   - **Upon Successful Completion**: If the method completes its execution without any errors, the proxy instructs the database to commit the transaction. This means all the changes made during the transaction are saved permanently in the database.
-   - **In Case of an Exception**: If an error or exception occurs during the execution of the method, the proxy instructs the database to roll back the entire transaction. This means any changes that were made since the start of the transaction are undone, as if they never happened.
+
+- **Upon Successful Completion**: If the method completes its execution without any errors, the proxy instructs the database to commit the transaction. This means all the changes made during the transaction are saved permanently in the database.
+
+- **In Case of an Exception**: If an error or exception occurs during the execution of the method, the proxy instructs the database to roll back the entire transaction. This means any changes that were made since the start of the transaction are undone, as if they never happened.
 
 - **Benefits of Using `@Transactional`**
   - **Simplified Code**: Reduces boilerplate code for transaction management.
