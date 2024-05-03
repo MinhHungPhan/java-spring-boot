@@ -17,10 +17,27 @@ public class CrudApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(String[] args){
+	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){
 
 		return  runner -> {
-			System.out.println("Hello World")
+            createStudent(studentDAO);
 		};
+	}
+
+	private void createStudent(StudentDAO studentDAO) {
+
+		// Create the student object
+		System.out.println("Creating new student object...");
+		Student student = new Student();
+		student.setFirstName("John");
+		student.setLastName("Doe");
+		student.setEmail("johndoe@kientree.com");
+
+		// Save the student object
+		System.out.println("Saving the student...");
+		studentDAO.save(student);
+
+		// Display id of the saved student
+		System.out.println("Saved student with id: " + student.getId());
 	}
 }
